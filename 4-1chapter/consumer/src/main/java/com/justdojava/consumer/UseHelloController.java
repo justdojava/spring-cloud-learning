@@ -17,6 +17,7 @@ public class UseHelloController {
     DiscoveryClient discoveryClient;
     @Autowired
     RestTemplate restTemplate;
+
     @GetMapping("/hello")
     public String hello(String name) {
         List<ServiceInstance> list = discoveryClient.getInstances("provider");
