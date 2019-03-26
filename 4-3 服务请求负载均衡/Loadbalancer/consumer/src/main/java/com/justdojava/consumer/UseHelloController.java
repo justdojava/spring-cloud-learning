@@ -45,4 +45,12 @@ public class UseHelloController {
         String s = loadBalancer.getForObject("http://provider/hello?name={1}", String.class, name);
         return s;
     }
+
+    @GetMapping("/hello3")
+    public void hello3(String name) {
+        for (int i = 0; i < 10; i++) {
+            String s = loadBalancer.getForObject("http://provider/hello?name={1}", String.class, name);
+            System.out.println(s);
+        }
+    }
 }

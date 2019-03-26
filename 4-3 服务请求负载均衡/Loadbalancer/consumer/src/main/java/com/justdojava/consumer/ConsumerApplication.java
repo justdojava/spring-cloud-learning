@@ -1,5 +1,7 @@
 package com.justdojava.consumer;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -27,13 +29,10 @@ public class ConsumerApplication {
     @LoadBalanced
     RestTemplate loadBalancer() {
         RestTemplate loadBalancer = new RestTemplate();
-        loadBalancer.getInterceptors().add(new ClientHttpRequestInterceptor() {
-            @Override
-            public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-                System.out.println(request.getURI()+">>>"+request);
-                return execution.execute(request, body);
-            }
-        });
         return loadBalancer;
+    }
+    @Bean
+    IRule iRule() {
+        return new RandomRule();
     }
 }

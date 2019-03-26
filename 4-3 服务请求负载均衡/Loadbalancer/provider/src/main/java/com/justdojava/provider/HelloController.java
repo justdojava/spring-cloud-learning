@@ -15,7 +15,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello(String name) {
-        int i = 1 / 0;
         return "hello " + name + " ; " + port;
     }
 }
