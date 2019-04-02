@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController implements HelloService {
     @Override
     public String hello(String name) {
+        System.out.println(">>>>>>>>>>>>");
+//        int i = 1 / 0;
+        try {
+            Thread.sleep(5*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "hello " + name + " !";
     }
 }
