@@ -62,4 +62,10 @@ public class UseHelloController {
             String hello = helloServiceRateLimiter.hello(name);
         }
     }
+    @GetMapping("/r2")
+    public void rateLimiter2(String name) {
+        for (int i = 0; i < 5; i++) {
+            String hello = helloServiceRateLimiter.hello2(name);
+        }
+    }
 }
