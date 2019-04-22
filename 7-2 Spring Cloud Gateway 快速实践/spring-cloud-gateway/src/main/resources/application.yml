@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: neo_route
+        uri: http://httpbin.org
+        predicates:
+          - Path=/get
