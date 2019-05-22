@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册验证</title>
+</head>
+<body>
+<div>注册验证</div>
+<div>您的注册信息是：
+    <table border="1">
+        <tr>
+            <td>邮箱地址</td>
+            <td th:text="${email}"></td>
+        </tr>
+        <tr>
+            <td>验证码</td>
+            <td th:text="${code}"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    如果您未注册本站，请忽略本邮件。
+</div>
+</body>
+</html>
